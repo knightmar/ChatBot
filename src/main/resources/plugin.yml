@@ -1,0 +1,5 @@
+name: ChatBot
+version: '${version}'
+main: fr.knightmar.chatbot.ChatBot
+api-version: 1.19
+load: STARTUP
