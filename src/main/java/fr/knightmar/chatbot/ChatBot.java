@@ -2,13 +2,19 @@ package fr.knightmar.chatbot;
 
 import fr.knightmar.chatbot.bot.Bot;
 import fr.knightmar.chatbot.minecraft.Events;
-import org.bukkit.Bukkit;
+import fr.knightmar.chatbot.minecraft.commands.ConfigCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ChatBot extends JavaPlugin {
-    private final JavaPlugin plugin = this;
+
+    public static String getConfig(String key) {
+        return ChatBot.getPlugin().getConfig().getString(key);
+    }
+
     @Override
     public void onEnable() {
+        saveDefaultConfig();
+
         try {
             Bot.runBot();
         } catch (InterruptedException e) {
